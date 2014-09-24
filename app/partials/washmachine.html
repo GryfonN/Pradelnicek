@@ -1,0 +1,234 @@
+<section class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <label class="navig-bar-left">Pradelnicek</label>
+
+        <div class="navig-bar-progress">
+            <!--PROGRESS-->
+            <div class="progress">
+                <label>
+                    Stav utriedeného oblečenia: {{getSortedClothesCount()}}/{{clothesData.length}}
+                </label>
+
+                <div ng-repeat="i in getBasketsCount() track by $index"
+                     ng-style="{'width' : getPercentageForBasket($index), 'background-color' : getBackgroundColorForBasket($index)}"
+                     title="Množstvo veci v {{$index + 1}}. košíku z celkového počtu vecí"
+                     class="progress-bar">
+                </div>
+            </div>
+        </div>
+
+        <label class="navig-bar-right">Pradelnicek</label>
+    </div>
+</section>
+
+<section id="wash-machine-row">
+
+    <!--PRACKA-->
+    <div>
+        <!--STAVOVY RIADOK-->
+        <div id="clothes-state-row">
+            <div ng-repeat="cloth in clothesData track by $index"
+                 ng-click="movePointer($index)"
+                 ng-style="isMainClothAtIndex($index) ? {'background-color':'#FFFFFF'} : {}"
+                 class="outer-box">
+                <div ng-style="{'background-color' : getBackgroundColorForBasket(cloth.basket)}"
+                     class="inner-box">
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="picker-side text-right">
+            <img ng-repeat="cloth in getClothesOnLeft() track by $index"
+                 ng-src="{{cloth.imgUrl}}"
+                 ng-click="movePointerToLeft($index)"
+                 ng-style="{'border-color' : getBackgroundColorForBasket(cloth.basket)}"
+                 class="thumb-img-circular"
+                 src="img/photo_placeholder.jpg"></div>
+
+        <div id="wash-machine-picker" class="">
+
+            <img ng-src="{{getMainClothImg()}}"
+                 ng-style="{'border-color' : getBackgroundColorForBasket(getMainClothBasket())}"
+                 title="Aktuálne oblečenie na zatriedenie"
+                 class="main-img-circular">
+
+
+            <!--UNPICK BUTTON ABS-->
+            <button id="basket-btn-unpick"
+                    ng-click="unpickBasket()"
+                    ng-show="isBasketBtnVisible()"
+                    class="btn btn-default btn-danger btn-sm"
+                    title="Zrušiť vybraný košík pre aktuálne oblečenie = skratka 0 / klik mýšou na male ukážky"
+                    type="button">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+
+            <!--btns lista ABS-->
+            <div id="basket-btns">
+                <button ng-repeat="i in getBasketsCount() track by $index"
+                        ng-show="isPickingMode()"
+                        ng-click="pickBasket($index)"
+                        ng-style="{'border-color' : getBackgroundColorForBasket($index)}"
+                        class="btn btn-default basket-btn"
+                        title="Zatriediť do {{$index+1}}. košíka = klávesová skratka {{$index+1}}"
+                        type="button">
+                    {{$index+1}}
+                </button>
+                <br>
+
+                <button ng-click="firstCloth()"
+                        ng-show="isPrevBtnVisible()"
+                        class="btn btn-default btn-first-cloth"
+                        title="Prechod na prvé oblečenie"
+                        type="button">
+                    <span class="glyphicon glyphicon-step-backward"></span>
+                </button>
+
+                <button ng-click="prevCloth()"
+                        ng-show="isPrevBtnVisible()"
+                        class="btn btn-default btn-prev-cloth"
+                        title="Prechod na predošlé oblečenie = klavesová skratka lavá šípka"
+                        type="button">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </button>
+
+                <button ng-click="removeBasket()"
+                        ng-show="isPickingMode()"
+                        class="btn btn-default btn-xs"
+                        title="Znížiť počet košíkov oblečenia"
+                        type="button">
+                    <span class="glyphicon glyphicon-minus"></span>
+                </button>
+                <button ng-click="addBasket()"
+                        ng-show="isPickingMode()"
+                        class="btn btn-default btn-xs"
+                        title="Zvýšiť počet košíkov oblečenia"
+                        type="button">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+
+                <button ng-click="nextCloth()"
+                        ng-show="isNextBtnVisible()"
+                        class="btn btn-default btn-next-cloth"
+                        title="Prechod na ďalšie oblečenie = klávesová skratka pravá šípka"
+                        type="button">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </button>
+
+                <button ng-click="lastCloth()"
+                        ng-show="isNextBtnVisible()"
+                        class="btn btn-default btn-last-cloth glyphicon glyphicon-step-forward"
+                        title="Prechod na posledné oblečenie"
+                        type="button">
+                </button>
+            </div>
+
+            <!--FINISH BTN-->
+            <button id="wash-machine-finish-btn"
+                    class="btn btn-default btn-success"
+                    ng-show="isFinishBtnVisible()"
+                    ng-click="moveToResultSection()"
+                    title="Presun na odosielanie"
+                    type="button">
+                <span class="glyphicon glyphicon-ok"></span> Dokončiť triedenie
+            </button>
+        </div>
+
+        <div class="picker-side text-left">
+            <img ng-repeat="cloth in getClothesOnRight() track by $index"
+                 ng-src="{{cloth.imgUrl}}"
+                 ng-click="movePointerToRight($index)"
+                 ng-style="{'border-color' : getBackgroundColorForBasket(cloth.basket)}"
+                 class="thumb-img-circular"
+                 src="img/photo_placeholder.jpg">
+        </div>
+    </div>
+
+    <br>
+
+    <!--BASKETS PREVIEW-->
+    <div id="clothes-baskets-preview">
+        <div ng-repeat="i in getBasketsCount() track by $index"
+             ng-style="{'background-color' : getBackgroundColorForBasket($index)}"
+             class="preview-basket-row">
+            <img src="img/basket.png" class="preview-basket-img">
+
+            <img ng-repeat="cloth in getClothesInBasket($index)"
+                 ng-src="{{cloth.imgUrl}}"
+                 ng-click="unpickBasket(cloth)"
+                 ng-style="{'border-color' : getBackgroundColorForBasket(cloth.basket)}"
+                 class="preview-thumb-img-circular"
+                 src="img/photo_placeholder.jpg">
+        </div>
+    </div>
+
+</section>
+
+<section id="result-row">
+    <div class="container">
+
+        <h2>Výsledok triedenia veci do košíkov</h2>
+
+        <hr>
+
+        <div ng-repeat="i in getBasketsCount() track by $index">
+
+            {{$index}}
+            <img ng-repeat="cloth in getClothesInBasket($index)"
+                 ng-src="{{cloth.imgUrl}}"
+                 ng-click="unpickBasket(cloth)"
+                 ng-style="{'border-color' : getBackgroundColorForBasket(cloth.basket)}"
+                 class="thumb-img-circular"
+                 src="img/photo_placeholder.jpg">
+
+        </div>
+
+        <!--EMAIL FORM-->
+        <!--TODO styl pre formular-->
+        <form class="form-horizontal" style="text-align: left;">
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-4 control-label">Email prijímateľa</label>
+
+                <div class="col-sm-5">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="janko.hraško@email.sk">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputCheckbox" class="col-sm-4 control-label">Napísať dodatočnú správu</label>
+
+                <div class="col-sm-5 left">
+                    <input id="inputCheckbox" type="checkbox">
+                </div>
+            </div>
+
+            <!--TODO styl pre textareu , css transation pre rozbalenie a nie-->
+            <div class="form-group">
+                <label for="inputText" class="col-sm-4 control-label">Dodatočný text k emailu</label>
+
+                <div class="col-sm-5">
+                    <textarea id="inputText"
+                              placeholder="Email"
+                              class="form-control"
+                              rows="3"
+                              style="resize: vertical; min-height: 34px;">
+
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-10">
+                    <button class="btn btn-lg btn-primary"
+                            title="Odoslať emmail"
+                            ng-click="sendEmail()"
+                            type="button">
+                        <span class="glyphicon glyphicon-envelope"></span> Email
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

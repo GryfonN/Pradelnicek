@@ -1,0 +1,72 @@
+<div ng-keypress="keyPress($event)">
+    <h1>Pradelnicek</h1>
+
+    <button class="btn btn-default"
+            ng-click="btnRemove()">
+        <span class="glyphicon-minus"></span>
+    </button>
+
+    <button class="btn btn-default"
+            ng-click="btnAdd()">
+        +
+    </button>
+
+    <br>
+
+    <button ng-repeat="i in test() track by $index"
+            class="btn btn-default btn-info btn-lg"
+            style="width: 100px; height: 50px;"
+            ng-click="btnClick($index)"
+            type="button">
+        asd {{$index+1}}
+    </button>
+
+    <div class="alert alert-warning">
+        <p>mainCloth = {{mainCloth}}</p>
+
+        WHITE[]:
+        <label ng-repeat="cloth in getSortedClothes() | filter:filterWhite"
+               style="border-width: 1px; border: solid; margin: 10px;">
+            id : {{cloth['id']}} <br/>
+            color : {{cloth['color']}} <br/>
+            <img ng-src="{{cloth['imgUrl']}}" style="width: 50px; height: 30px;">
+        </label>
+
+        BLACK[]
+        <label ng-repeat="cloth in getSortedClothes() | filter:filterBlack"
+               style="border-width: 1px; border: solid; margin: 10px;">
+            id : {{cloth['id']}} <br/>
+            color : {{cloth['color']}} <br/>
+            <img ng-src="{{cloth['imgUrl']}}" style="width: 50px; height: 30px;">
+        </label>
+
+        COLOR[]:
+        <label ng-repeat="cloth in getSortedClothes() | filter:filterColor"
+               style="border-width: 1px; border: solid; margin: 10px;">
+            id : {{cloth['id']}} <br/>
+            color : {{cloth['color']}} <br/>
+            <img ng-src="{{cloth['imgUrl']}}" style="width: 50px; height: 30px;">
+        </label>
+    </div>
+
+    <button class="btn btn-lg btn-primary" type="button" ng-click="prevCloth()"> &lt;&lt; PREV</button>
+    <button ng-click="setWhiteColor()" class="btn btn-lg btn-warning" type="button">W</button>
+    <button ng-click="setBlackColor()" class="btn btn-lg btn-warning" type="button">B</button>
+    <button ng-click="setColorColor()" class="btn btn-lg btn-warning" type="button">C</button>
+    <button class="btn btn-lg btn-primary" type="button" ng-click="nextCloth()"> &gt;&gt; NEXT</button>
+    <br>
+
+    <label ng-repeat="cloth in getSortedClothes()" style="border-width: 1px; border: solid; margin: 10px;">
+        id : {{cloth['id']}} <br/>
+        color : {{cloth['color']}} <br/>
+        <img ng-src="{{cloth['imgUrl']}}" style="width: 150px; height: 100px;">
+    </label>
+
+    <img ng-src="{{getMainImg()}}" class="phone">
+
+    <label ng-repeat="cloth in getUnsortedClothes()" style="border-width: 1px; border: solid; margin: 10px;">
+        id : {{cloth['id']}} <br/>
+        color : {{cloth['color']}} <br/>
+        <img ng-src="{{cloth['imgUrl']}}" style="width: 150px; height: 100px;">
+    </label>
+</div>

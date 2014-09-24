@@ -1,0 +1,19 @@
+### Project
+app/css/*.css
+
+
+### JetBrains template
+.idea
+/*.iml
+
+
+### AngularJS template
+bower_components/
+
+
+### Node template
+# Logs
+logs
+*.log
+# Dependency directory
+node_modules/
