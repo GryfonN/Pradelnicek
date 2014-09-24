@@ -200,22 +200,24 @@
                 <label for="inputCheckbox" class="col-sm-4 control-label">Napísať dodatočnú správu</label>
 
                 <div class="col-sm-5 left">
-                    <input id="inputCheckbox" type="checkbox">
+                    <input id="inputCheckbox"
+                           ng-model="fromCheckBox"
+                           type="checkbox">
                 </div>
             </div>
 
             <!--TODO styl pre textareu , css transation pre rozbalenie a nie-->
-            <div class="form-group">
-                <label for="inputText" class="col-sm-4 control-label">Dodatočný text k emailu</label>
+            <div class="form-group"
+                 ng-show="fromCheckBox">
+                <label for="inputText"
+                       class="col-sm-4 control-label">Dodatočný text k emailu</label>
 
                 <div class="col-sm-5">
                     <textarea id="inputText"
-                              placeholder="Email"
+                              placeholder="... nezabudni praci prašok"
                               class="form-control"
                               rows="3"
-                              style="resize: vertical; min-height: 34px;">
-
-                    </textarea>
+                              style="resize: vertical; min-height: 34px;"></textarea>
                 </div>
             </div>
 
