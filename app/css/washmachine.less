@@ -15,7 +15,7 @@
 @stateRowCircleSize: 12px;
 
 @basketsPreviewWidth: 800px;
-@basketsPreviewThumbSize: 50px;
+@basketsPreviewThumbSize: 30px;
 
 .navig-bar-right,
 .navig-bar-left,
@@ -54,38 +54,6 @@
     color: #000;
     left: 30%;
     width: 40%;
-}
-
-//STAVOVAY RIADOK
-#clothes-state-row {
-    //TODO podla obrazka pracky
-    max-width: @stateRowmaxWidth;
-    display: inline-block;
-    position: relative;
-    margin: @stateRowMargin;
-}
-
-#clothes-state-row .outer-box {
-    float: left;
-    padding: @stateRowPadding;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-}
-
-#clothes-state-row .outer-box:hover {
-    background: rgb(255, 255, 255); /* Fall-back for browsers that don't support rgba */
-    background: rgba(255, 255, 255, .5);
-}
-
-#clothes-state-row .inner-box {
-    width: @stateRowCircleSize;
-    height: @stateRowCircleSize;
-    max-width: @stateRowCircleSize;
-    max-height: @stateRowCircleSize;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
 }
 
 //PRACKA
@@ -254,7 +222,7 @@
     padding-top: 70px; //koli navbaru
     width: 100%;
     min-height: 100vh;
-    background-color: #dca7a7;
+    background-color: @color-sectionPreviewBg;
     text-align: center;
 }
 
