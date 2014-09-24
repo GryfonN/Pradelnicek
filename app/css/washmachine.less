@@ -1,3 +1,5 @@
+@import "_colors.less";
+
 @thumbImgSize: 80px;
 @thumbImgMargin: 2px;
 @thumbImgBorder: 8px;
@@ -11,8 +13,6 @@
 @stateRowPadding: 4px;
 @stateRowMargin: 10px;
 @stateRowCircleSize: 12px;
-
-@noBasketColor: #FFFFFF;
 
 @basketsPreviewWidth: 800px;
 @basketsPreviewThumbSize: 50px;
@@ -97,7 +97,7 @@
 
 .thumb-img-circular {
     //farba ako aj v ctrl
-    border: @thumbImgBorder solid @noBasketColor;
+    border: @thumbImgBorder solid @color-noBasket;
     width: @thumbImgSize;
     height: @thumbImgSize;
     margin: @thumbImgMargin;
@@ -118,7 +118,7 @@
     padding-top: 70px; //koli navbaru
     width: 100%;
     min-height: 100vh;
-    background-color: #333333;
+    background-color: @color-sectionWashmachineBg;
     text-align: center;
 }
 
