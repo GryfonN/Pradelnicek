@@ -1,255 +1,257 @@
 @import "_colors.less";
+@import "_variables.less";
 
-@thumbImgSize: 80px;
-@thumbImgMargin: 2px;
-@thumbImgBorder: 8px;
-
-@arrowBtnSize: 26px;
-@btnUnpickSize: 26px;
-@mainImgBorder: 12px;
-@mainImgSize: 300px;
-
-@stateRowmaxWidth: 480px;
-@stateRowPadding: 4px;
-@stateRowMargin: 10px;
-@stateRowCircleSize: 12px;
-
-@basketsPreviewWidth: 800px;
-@basketsPreviewThumbSize: 30px;
-
+//NAVIGACIA
 .navig-bar-right,
 .navig-bar-left,
 .navig-bar-progress {
-    padding-top: 12px;
+  padding-top: 12px;
 }
 
 .navig-bar-right {
-    text-align: right;
+  text-align: right;
 }
 
 .navig-bar-left {
-    text-align: left;
+  text-align: left;
 }
 
 .navig-bar-right,
 .navig-bar-left {
-    width: 20%;
-    font-size: 18px;
-    line-height: 20px;
+  width: 20%;
+  font-size: 18px;
+  line-height: 20px;
 }
 
 .navig-bar-progress {
-    width: 50%;
-    display: inline-block;
+  width: 50%;
+  display: inline-block;
 }
 
 //PROGRESS BAR
 .progress {
-    position: relative;
-    margin-bottom: 0px;
+  position: relative;
+  margin-bottom: 0px;
 }
 
 .progress label {
-    position: absolute;
-    color: #000;
-    left: 30%;
-    width: 40%;
+  position: absolute;
+  color: #000;
+  left: 30%;
+  width: 40%;
 }
 
 //PRACKA
+#wash-machine-row {
+  padding-top: 70px; //koli navbaru
+  width: 100%;
+  min-height: 100vh;
+  background-color: @color-sectionWashmachineBg;
+  text-align: center;
+}
+
+//STAVOVAY RIADOK
+#clothes-state-row {
+  //TODO podla obrazka pracky
+  max-width: @stateRowMaxWidth;
+  display: inline-block;
+  position: relative;
+  margin: @stateRowMargin;
+}
+
+#clothes-state-row .outer-box {
+  float: left;
+  padding: @stateRowPadding;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+
+#clothes-state-row .outer-box:hover {
+  background: rgb(255, 255, 255); /* Fall-back for browsers that don't support rgba */
+  background: rgba(255, 255, 255, .5);
+}
+
+#clothes-state-row .inner-box {
+  width: 12px;
+  height: 12px;
+  max-width: 12px;
+  max-height: 12px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
 
 .picker-side {
-    display: inline-block;
-    width: @thumbImgSize*4 + @thumbImgBorder+4*2;
+  display: inline-block;
+  width: @thumbImgSize*4 + @thumbImgBorder+4*2;
 }
 
-.thumb-img-circular {
-    //farba ako aj v ctrl
-    border: @thumbImgBorder solid @color-noBasket;
-    width: @thumbImgSize;
-    height: @thumbImgSize;
-    margin: @thumbImgMargin;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    opacity: 1;
+.picker-img-circular {
+  //farba ako aj v ctrl
+  border: @thumbImgBorder solid @color-noBasket;
+  width: @thumbImgSize;
+  height: @thumbImgSize;
+  margin: @thumbImgMargin;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  opacity: 1;
 }
 
-.thumb-img-circular:hover {
-    margin: 0px;
-    width: @thumbImgSize+@thumbImgMargin*2;
-    height: @thumbImgSize+@thumbImgMargin*2;
-    border-width: @thumbImgBorder/2;
-}
-
-#wash-machine-row {
-    padding-top: 70px; //koli navbaru
-    width: 100%;
-    min-height: 100vh;
-    background-color: @color-sectionWashmachineBg;
-    text-align: center;
+.picker-img-circular:hover {
+  margin: 0px;
+  width: @thumbImgSize+@thumbImgMargin*2;
+  height: @thumbImgSize+@thumbImgMargin*2;
+  border-width: @thumbImgBorder/2;
 }
 
 #wash-machine-picker {
-    position: relative;
-    display: inline;
-    text-align: center;
+  position: relative;
+  display: inline;
+  text-align: center;
 }
 
 #basket-btn-unpick {
-    position: absolute;
-    width: @btnUnpickSize;
-    top: -@mainImgSize/2 + @mainImgSize/15;
-    left: (@mainImgSize /2 - @btnUnpickSize / 2);
+  position: absolute;
+  width: @btnUnpickSize;
+  top: -@mainImgSize/2 + @mainImgSize/15;
+  left: (@mainImgSize /2 - @btnUnpickSize / 2);
 }
 
 #basket-btns {
-    text-align: center;
-    position: absolute;
-    width: @mainImgSize;
-    left: 0;
-    margin: 6px 6px;
-    bottom: -@mainImgSize/2 + @mainImgSize/15;
+  text-align: center;
+  position: absolute;
+  width: @mainImgSize;
+  left: 0;
+  margin: 6px 6px;
+  bottom: -@mainImgSize/2 + @mainImgSize/15;
 }
 
 #basket-btns .basket-btn {
-    padding: 1px 6px;
-    margin: 3px;
-    font-weight: bold;
-    border-width: 4px;
+  padding: 1px 6px;
+  margin: 3px;
+  font-weight: bold;
+  border-width: 4px;
 }
 
 .btn-next-cloth,
 .btn-prev-cloth,
 .btn-first-cloth,
 .btn-last-cloth {
-    width: @arrowBtnSize;
-    height: @arrowBtnSize;
-    padding: 0 0;
+  width: @arrowBtnSize;
+  height: @arrowBtnSize;
+  padding: 0 0;
 }
 
 .btn-first-cloth {
-    border-bottom-left-radius: @arrowBtnSize;
-    border-top-left-radius: @arrowBtnSize;
+  border-bottom-left-radius: @arrowBtnSize;
+  border-top-left-radius: @arrowBtnSize;
 }
 
 .btn-last-cloth {
-    border-bottom-right-radius: @arrowBtnSize;
-    border-top-right-radius: @arrowBtnSize;
+  border-bottom-right-radius: @arrowBtnSize;
+  border-top-right-radius: @arrowBtnSize;
 }
 
 #wash-machine-picker .main-img-circular {
-    width: @mainImgSize;
-    height: @mainImgSize;
-    border: @mainImgBorder solid #fff;
-    border-radius: @mainImgSize /2;
-    -webkit-border-radius: @mainImgSize /2;
-    -moz-border-radius: @mainImgSize /2;
+  width: @mainImgSize;
+  height: @mainImgSize;
+  border: @mainImgBorder solid #fff;
+  border-radius: @mainImgSize /2;
+  -webkit-border-radius: @mainImgSize /2;
+  -moz-border-radius: @mainImgSize /2;
 }
 
 #wash-machine-finish-btn {
-    position: absolute;
-    width: @mainImgSize * 0.7;
-    top: 0;
-    left: (@mainImgSize /2 - (@mainImgSize * 0.7) / 2);
-}
-
-//STAVOVAY RIADOK
-#clothes-state-row {
-    //TODO podla obrazka pracky
-    max-width: @stateRowmaxWidth;
-    display: inline-block;
-    position: relative;
-    margin: @stateRowMargin;
-}
-
-#clothes-state-row .outer-box {
-    float: left;
-    padding: @stateRowPadding;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-}
-
-#clothes-state-row .outer-box:hover {
-    background: rgb(255, 255, 255); /* Fall-back for browsers that don't support rgba */
-    background: rgba(255, 255, 255, .5);
-}
-
-#clothes-state-row .inner-box {
-    width: 12px;
-    height: 12px;
-    max-width: 12px;
-    max-height: 12px;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
+  position: absolute;
+  width: @mainImgSize * 0.7;
+  top: 0;
+  left: (@mainImgSize /2 - (@mainImgSize * 0.7) / 2);
 }
 
 //BASKET PREVIEW
 #clothes-baskets-preview {
-    display: inline-block;
-    width: @basketsPreviewWidth;
-    text-align: left;
-    margin-bottom: @basketsPreviewThumbSize;
+  display: inline-block;
+  width: @basketsPreviewWidth;
+  text-align: left;
+  margin-bottom: @basketsPreviewThumbSize;
 }
 
 #clothes-baskets-preview .preview-basket-row {
-    margin: 5px;
-    padding: @basketsPreviewThumbSize / 7;
-    -webkit-border-radius: @basketsPreviewThumbSize / 4;
-    -moz-border-radius: @basketsPreviewThumbSize / 4;
-    border-radius: @basketsPreviewThumbSize / 4;
+  margin: 5px;
+  padding: @basketsPreviewThumbSize / 7;
+  -webkit-border-radius: @basketsPreviewThumbSize / 4;
+  -moz-border-radius: @basketsPreviewThumbSize / 4;
+  border-radius: @basketsPreviewThumbSize / 4;
 }
 
 #clothes-baskets-preview .preview-basket-img {
-    width: @basketsPreviewThumbSize;
-    height: @basketsPreviewThumbSize;
+  width: @basketsPreviewThumbSize;
+  height: @basketsPreviewThumbSize;
 }
 
 #clothes-baskets-preview .preview-thumb-img-circular {
-    width: @basketsPreviewThumbSize;
-    height: @basketsPreviewThumbSize;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    margin-left: 5px;
+  width: @basketsPreviewThumbSize;
+  height: @basketsPreviewThumbSize;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+//RESULT ROW
+#result-row {
+  padding-top: 70px; //koli navbaru
+  width: 100%;
+  min-height: 100vh;
+  background-color: @color-sectionPreviewBg;
+  text-align: center;
+}
+
+.result-img-circular {
+  border: @thumbImgBorder solid @color-noBasket;
+  width: @thumbImgSize;
+  height: @thumbImgSize;
+  margin: @thumbImgMargin;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  opacity: 1;
+}
+
+.result-img-circular:hover {
+  margin: 0px;
+  width: @thumbImgSize+@thumbImgMargin*2;
+  height: @thumbImgSize+@thumbImgMargin*2;
+  border-width: @thumbImgBorder/2;
 }
 
 //KOSIKY
-
-#result-row {
-    padding-top: 70px; //koli navbaru
-    width: 100%;
-    min-height: 100vh;
-    background-color: @color-sectionPreviewBg;
-    text-align: center;
-}
-
 .basket-0 {
-    background-color: #61BD6D;
+  background-color: @color-basket-0;
 }
 
 .basket-1 {
-    background-color: #54ACD2;
+  background-color: @color-basket-1;
 }
 
 .basket-2 {
-    background-color: #9365B8;
+  background-color: @color-basket-2;
 }
 
 .basket-3 {
-    background-color: #F7DA64;
+  background-color: @color-basket-3;
 }
 
 .basket-4 {
-    background-color: #FBA026;
+  background-color: @color-basket-4;
 }
 
 .basket-5 {
-    background-color: #EB6B56;
+  background-color: @color-basket-5;
 }
 
 .basket-6 {
-    background-color: #FAACF1;
+  background-color: @color-basket-6;
 }
