@@ -161,7 +161,6 @@
             <img ng-repeat="cloth in getClothesInBasket($index)"
                  ng-src="{{cloth.imgUrl}}"
                  ng-click="unpickBasket(cloth)"
-                 ng-style="{'border-color' : getBackgroundColorForBasket(cloth.basket)}"
                  class="preview-thumb-img-circular"
                  src="img/photo_placeholder.jpg">
         </div>
