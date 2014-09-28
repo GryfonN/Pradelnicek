@@ -50,18 +50,37 @@
   text-align: center;
 }
 
+.washmachine {
+  position: relative;
+  padding-bottom: @washmachineImgPaddingBottom;
+}
+
+.washmachine-img {
+  position: absolute;
+  width: @washmachineImgWidth;
+  height: @washmachineImgHeight;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -@washmachineImgWidth/2;
+  z-index: 0;
+}
+
 //STAVOVAY RIADOK
 #clothes-state-row {
-  //TODO podla obrazka pracky
+  background-color: @color-washachine-gray;
   max-width: @stateRowMaxWidth;
   display: inline-block;
   position: relative;
-  margin: @stateRowMargin;
+  padding: @stateRowPadding;
+  margin-bottom: @stateRowMarginBottom;
+  z-index: 1;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 #clothes-state-row .outer-box {
   float: left;
-  padding: @stateRowPadding;
+  padding: @stateRowOuterPadding;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -83,8 +102,10 @@
 }
 
 .picker-side {
+  position: relative;
   display: inline-block;
   width: @thumbImgSize*4 + @thumbImgBorder+4*2;
+  z-index: 1;
 }
 
 .picker-img-circular {
@@ -110,6 +131,7 @@
   position: relative;
   display: inline;
   text-align: center;
+  z-index: 1;
 }
 
 #basket-btn-unpick {

@@ -24,7 +24,7 @@
 <section id="wash-machine-row">
 
     <!--PRACKA-->
-    <div>
+    <div class="washmachine">
         <!--STAVOVY RIADOK-->
         <div id="clothes-state-row">
             <div ng-repeat="cloth in clothesData track by $index"
@@ -37,6 +37,9 @@
             </div>
         </div>
         <br>
+
+        <!--BACKGROUND IMG WASH MACHINE-->
+        <img class="washmachine-img" src="img/washmachine_open.png">
 
         <div class="picker-side text-right">
             <img ng-repeat="cloth in getClothesOnLeft() track by $index"
@@ -52,7 +55,6 @@
                  ng-style="{'border-color' : getBackgroundColorForBasket(getMainClothBasket())}"
                  title="Aktuálne oblečenie na zatriedenie"
                  class="main-img-circular">
-
 
             <!--UNPICK BUTTON ABS-->
             <button id="basket-btn-unpick"
