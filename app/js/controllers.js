@@ -187,6 +187,10 @@ pradelnicekControllers.controller('WashmachineCtrl', ['$scope', 'pClothes', '_',
         };
 
 
+        $scope.getWashMachineImg = function () {
+            return (pointer < 0) ? WASH_MACHINE_START
+                : (pointer >= $scope.clothesData.length) ? WASH_MACHINE_CLOSE : WASH_MACHINE_OPEN;
+        };
         $scope.getMainClothImg = function () {
             if (angular.isUndefined(mainCloth)) {
                 return (pointer < 0) ? "img/washmachine_placeholder.png" : "img/washmachine_placeholder.png";
@@ -305,5 +309,8 @@ pradelnicekControllers.controller('WashmachineCtrl', ['$scope', 'pClothes', '_',
         /* CONSTATNTS */
         var PICK_DELAY = 700;
         var CLOTHES_ON_SIDE_COUNT = 4;
+        var WASH_MACHINE_OPEN = 'img/washmachine_open.png';
+        var WASH_MACHINE_CLOSE = 'img/washmachine_close.png';
+        var WASH_MACHINE_START = 'img/washmachine_start.png';
     }
 ]);

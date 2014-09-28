@@ -39,7 +39,9 @@
         <br>
 
         <!--BACKGROUND IMG WASH MACHINE-->
-        <img class="washmachine-img" src="img/washmachine_open.png">
+        <img class="washmachine-img"
+             ng-src="{{getWashMachineImg()}}"
+             src="img/washmachine_open.png">
 
         <div class="picker-side text-right">
             <img ng-repeat="cloth in getClothesOnLeft() track by $index"
@@ -49,7 +51,7 @@
                  class="picker-img-circular"
                  src="img/photo_placeholder.jpg"></div>
 
-        <div id="wash-machine-picker" class="">
+        <div id="wash-machine-picker">
 
             <img ng-src="{{getMainClothImg()}}"
                  ng-style="{'border-color' : getBackgroundColorForBasket(getMainClothBasket())}"
@@ -59,7 +61,7 @@
             <!--UNPICK BUTTON ABS-->
             <button id="basket-btn-unpick"
                     ng-click="unpickBasket()"
-                    ng-show="isBasketBtnVisible()"
+                    ng-show="isPickingMode()"
                     class="btn btn-default btn-danger btn-sm"
                     title="Zrušiť vybraný košík pre aktuálne oblečenie = skratka 0 / klik mýšou na male ukážky"
                     type="button">
