@@ -8,10 +8,8 @@ pradelnicekControllers.controller('WashmachineCtrl', ['$scope', 'pClothes', '_',
     function ($scope, pClothes, _) {
 
         /*VARIABLES*/
-        var PICK_DELAY = 700;
         var basketsCount = 3;
         var pointer = -1;
-        var clothesOnSide = 4;
         var mainCloth = undefined;
         $scope.clothesData = pClothes.query({}, function callback(res) {
                 console.log("$clothesData.length=" + res.length);
@@ -191,7 +189,7 @@ pradelnicekControllers.controller('WashmachineCtrl', ['$scope', 'pClothes', '_',
 
         $scope.getMainClothImg = function () {
             if (angular.isUndefined(mainCloth)) {
-                return (pointer < 0) ? 'img/washmachine_open.jpg' : 'img/washmachine_close.jpg';
+                return (pointer < 0) ? PATH_WASHMACHINE_TITLE_OPEN : PATH_WASHMACHINE_TITLE_CLOSE;
             }
             return mainCloth.imgUrl ? mainCloth.imgUrl : 'img/photo_placeholder.jpg';
         };
@@ -203,13 +201,13 @@ pradelnicekControllers.controller('WashmachineCtrl', ['$scope', 'pClothes', '_',
             return mainCloth.basket;
         };
         $scope.getClothesOnLeft = function () {
-            var leftBorder = pointer - clothesOnSide < 0 ? 0 : pointer - clothesOnSide;
+            var leftBorder = pointer - CLOTHES_ON_SIDE_COUNT < 0 ? 0 : pointer - CLOTHES_ON_SIDE_COUNT;
             var rightBorder = pointer < 0 ? 0 : pointer;
             return $scope.clothesData.slice(leftBorder, rightBorder);
         };
         $scope.getClothesOnRight = function () {
             var leftBorder = pointer > $scope.clothesData.length - 1 ? $scope.clothesData.length : pointer + 1;
-            var rightBorder = pointer + clothesOnSide + 1;
+            var rightBorder = pointer + CLOTHES_ON_SIDE_COUNT + 1;
             return $scope.clothesData.slice(leftBorder, rightBorder);
         };
 
@@ -303,5 +301,11 @@ pradelnicekControllers.controller('WashmachineCtrl', ['$scope', 'pClothes', '_',
 
             return hh + ':' + min + ' ' + dd + '/' + mm + '/' + yy;
         }
+
+        /* CONSTATNTS */
+        var PATH_WASHMACHINE_TITLE_OPEN = 'img/washmachine_title_open.jpg';
+        var PATH_WASHMACHINE_TITLE_CLOSE = 'img/washmachine_title_close.jpg';
+        var PICK_DELAY = 700;
+        var CLOTHES_ON_SIDE_COUNT = 4;
     }
 ]);
