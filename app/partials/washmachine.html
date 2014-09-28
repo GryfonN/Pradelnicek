@@ -156,7 +156,7 @@
         <div ng-repeat="i in getBasketsCount() track by $index"
              ng-style="{'background-color' : getBackgroundColorForBasket($index)}"
              class="preview-basket-row">
-            <img src="img/basket.png" class="preview-basket-img">
+            <img src="img/icon-backet.png" class="preview-basket-img">
 
             <img ng-repeat="cloth in getClothesInBasket($index)"
                  ng-src="{{cloth.imgUrl}}"
