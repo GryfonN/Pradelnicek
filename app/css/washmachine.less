@@ -185,9 +185,9 @@
 
 #wash-machine-finish-btn {
   position: absolute;
-  width: @mainImgSize * 0.7;
-  top: 0;
-  left: (@mainImgSize /2 - (@mainImgSize * 0.7) / 2);
+  width: @mainImgSize * 0.8;
+  top: -100px;
+  left: (@mainImgSize /2 - (@mainImgSize * 0.8) / 2);
 }
 
 //BASKET PREVIEW
@@ -209,6 +209,15 @@
 #clothes-baskets-preview .preview-basket-img {
   width: @basketsPreviewThumbSize;
   height: @basketsPreviewThumbSize;
+}
+
+.preview-basket-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.preview-basket-clicker:hover{
+  background-color: #222222;
 }
 
 #clothes-baskets-preview .preview-thumb-img-circular {

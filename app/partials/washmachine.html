@@ -135,7 +135,7 @@
                     ng-click="moveToResultSection()"
                     title="Presun na odosielanie"
                     type="button">
-                <span class="glyphicon glyphicon-chevron-down"></span> Dokončiť triedenie
+                <h3>Dokončiť triedenie</h3>
             </button>
         </div>
 
@@ -158,11 +158,16 @@
              class="preview-basket-row">
             <img src="img/icon-backet.png" class="preview-basket-img">
 
-            <img ng-repeat="cloth in getClothesInBasket($index)"
-                 ng-src="{{cloth.imgUrl}}"
-                 ng-click="unpickBasket(cloth)"
-                 class="preview-thumb-img-circular"
-                 src="img/photo_placeholder.jpg">
+            <div class="preview-basket-wrapper"
+                 ng-repeat="cloth in getClothesInBasket($index)"
+                 ng-click="unpickBasket(cloth)">
+
+                <img class="preview-thumb-img-circular"
+                     ng-src="{{cloth.imgUrl}}"
+                     src="img/photo_placeholder.jpg">
+
+                <div class="preview-basket-clicker"></div>
+            </div>
         </div>
     </div>
 

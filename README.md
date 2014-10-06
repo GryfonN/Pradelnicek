@@ -1,5 +1,8 @@
 # Pradelnicek
 
+
+![ScreenShot](https://raw.github.com/GryfonN/Pradelnicek/master/photo.png})
+
 1. offi tutorial AngularJS
 2. egghead.io videa
 https://www.youtube.com/playlist?list=PLP6DbQBkn9ymGQh2qpk9ImLHdSH5T7yw7
