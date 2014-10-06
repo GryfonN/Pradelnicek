@@ -195,28 +195,30 @@
   display: inline-block;
   width: @basketsPreviewWidth;
   text-align: left;
-  margin-bottom: @basketsPreviewThumbSize;
+  margin-bottom: @basketsPreviewMarginBottom;
 }
 
 #clothes-baskets-preview .preview-basket-row {
   margin: 5px;
-  padding: @basketsPreviewThumbSize / 7;
-  -webkit-border-radius: @basketsPreviewThumbSize / 4;
-  -moz-border-radius: @basketsPreviewThumbSize / 4;
   border-radius: @basketsPreviewThumbSize / 4;
 }
 
 #clothes-baskets-preview .preview-basket-img {
-  width: @basketsPreviewThumbSize;
-  height: @basketsPreviewThumbSize;
+  width: @basketsPreviewWrapperSize;
+  height: @basketsPreviewWrapperSize;
+  padding: 5px;
 }
 
-.preview-basket-wrapper {
+#clothes-baskets-preview .preview-basket-wrapper {
+  width: @basketsPreviewWrapperSize;
+  height: @basketsPreviewWrapperSize;
   position: relative;
   display: inline-block;
+  text-align: center;
+  vertical-align: baseline;
 }
 
-.preview-basket-clicker {
+#clothes-baskets-preview .preview-basket-clicker {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -224,30 +226,23 @@
   left: 0;
 }
 
-.preview-basket-clicker:hover {
-  background: url('../img/icon-remove.png') no-repeat center;
-  width: @basketsPreviewThumbSize;
-  height: @basketsPreviewThumbSize;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
+#clothes-baskets-preview .preview-basket-clicker:hover {
+  //noinspection CssUnknownTarget
+  background: #d2322d url('../img/icon-remove.png') no-repeat center;
+  width: @basketsPreviewWrapperSize;
+  height: @basketsPreviewWrapperSize;
   border-radius: 50%;
-  margin-left: 5px;
-  margin-right: 5px;
 }
 
-.preview-basket-clicker:active {
-  background-color: #d2322d;
-  border: 3px dashed;
+#clothes-baskets-preview .preview-basket-clicker:active {
+
 }
 
 #clothes-baskets-preview .preview-thumb-img-circular {
   width: @basketsPreviewThumbSize;
   height: @basketsPreviewThumbSize;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
+  margin: 2px;
   border-radius: 50%;
-  margin-left: 5px;
-  margin-right: 5px;
 }
 
 //RESULT ROW
