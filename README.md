@@ -1,7 +1,7 @@
 # Pradelnicek
 
 
-![ScreenShot](https://raw.github.com/GryfonN/Pradelnicek/master/photo.png})
+![Screenshot](/photo.png?raw=true "Screenshot")
 
 1. offi tutorial AngularJS
 2. egghead.io videa
