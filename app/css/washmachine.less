@@ -106,23 +106,40 @@
   z-index: 1;
 }
 
+.picker-side-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .picker-img-circular {
   //farba ako aj v ctrl
   border: @thumbImgBorder solid @color-noBasket;
   width: @thumbImgSize;
   height: @thumbImgSize;
-  margin: @thumbImgMargin;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   opacity: 1;
 }
 
-.picker-img-circular:hover {
-  margin: 0px;
-  width: @thumbImgSize+@thumbImgMargin*2;
-  height: @thumbImgSize+@thumbImgMargin*2;
-  border-width: @thumbImgBorder/2;
+.picker-side-clicker {
+  position: absolute;
+  width: @thumbImgSize;
+  height: @thumbImgSize;
+  top: 0;
+  left: 0;
+}
+
+.picker-side-clicker:hover {
+  //noinspection CssUnknownTarget
+  background: url('../img/icon-jump-to.png') no-repeat center;
+  opacity: @iconOpacity;
+}
+
+.picker-side-clicker:active {
+  background-color: @color-washachine-gray;
+  border-radius: 50%;
+  opacity: 1;
 }
 
 #wash-machine-picker {
@@ -214,8 +231,6 @@
   height: @basketsPreviewWrapperSize;
   position: relative;
   display: inline-block;
-  text-align: center;
-  vertical-align: baseline;
 }
 
 #clothes-baskets-preview .preview-basket-clicker {
@@ -228,10 +243,17 @@
 
 #clothes-baskets-preview .preview-basket-clicker:hover {
   //noinspection CssUnknownTarget
-  background: #d2322d url('../img/icon-remove.png') no-repeat center;
+  background: url('../img/icon-remove.png') no-repeat center;
   width: @basketsPreviewWrapperSize;
   height: @basketsPreviewWrapperSize;
   border-radius: 50%;
+  opacity: @iconOpacity;
+}
+
+#clothes-baskets-preview .preview-basket-clicker:active {
+  background-color: #d2322d;
+  opacity: 1;
+  border: 3px solid @color-noBasket;
 }
 
 #clothes-baskets-preview .preview-basket-clicker:active {

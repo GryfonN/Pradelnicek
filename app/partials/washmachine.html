@@ -30,7 +30,8 @@
             <div ng-repeat="cloth in clothesData track by $index"
                  ng-click="movePointer($index)"
                  ng-style="isMainClothAtIndex($index) ? {'background-color':'#FFFFFF'} : {}"
-                 class="outer-box">
+                 class="outer-box"
+                 title="Preskočiť na {{$index + 1}}. oblečenie">
                 <div ng-style="{'background-color' : getBackgroundColorForBasket(cloth.basket)}"
                      class="inner-box">
                 </div>
@@ -44,12 +45,19 @@
              src="img/washmachine_open.png">
 
         <div class="picker-side text-right">
-            <img ng-repeat="cloth in getClothesOnLeft() track by $index"
-                 ng-src="{{cloth.imgUrl}}"
+            <div class="picker-side-wrapper"
+                 ng-repeat="cloth in getClothesOnLeft() track by $index"
                  ng-click="movePointerToLeft($index)"
-                 ng-style="{'border-color' : getBackgroundColorForBasket(cloth.basket)}"
-                 class="picker-img-circular"
-                 src="img/photo_placeholder.jpg"></div>
+                 title="Preskočiť na oblečenie">
+
+                <img class="picker-img-circular"
+                     ng-src="{{cloth.imgUrl}}"
+                     ng-style="{'border-color' : getBackgroundColorForBasket(cloth.basket)}"
+                     src="img/photo_placeholder.jpg">
+
+                <div class="picker-side-clicker"></div>
+            </div>
+        </div>
 
         <div id="wash-machine-picker">
 
@@ -140,12 +148,18 @@
         </div>
 
         <div class="picker-side text-left">
-            <img ng-repeat="cloth in getClothesOnRight() track by $index"
-                 ng-src="{{cloth.imgUrl}}"
+            <div class="picker-side-wrapper"
+                 ng-repeat="cloth in getClothesOnRight() track by $index"
                  ng-click="movePointerToRight($index)"
-                 ng-style="{'border-color' : getBackgroundColorForBasket(cloth.basket)}"
-                 class="picker-img-circular"
-                 src="img/photo_placeholder.jpg">
+                 title="Preskočiť na oblečenie">
+
+                <img class="picker-img-circular"
+                     ng-src="{{cloth.imgUrl}}"
+                     ng-style="{'border-color' : getBackgroundColorForBasket(cloth.basket)}"
+                     src="img/photo_placeholder.jpg">
+
+                <div class="picker-side-clicker"></div>
+            </div>
         </div>
     </div>
 
@@ -160,13 +174,15 @@
 
             <div class="preview-basket-wrapper"
                  ng-repeat="cloth in getClothesInBasket($index)"
-                 ng-click="unpickBasket(cloth)">
+                 title="Vyhodiť z košíka">
 
                 <img class="preview-thumb-img-circular"
                      ng-src="{{cloth.imgUrl}}"
                      src="img/photo_placeholder.jpg">
 
-                <div class="preview-basket-clicker"></div>
+                <div class="preview-basket-clicker"
+                     ng-click="unpickBasket(cloth)">
+                </div>
             </div>
         </div>
     </div>
