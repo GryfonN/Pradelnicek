@@ -216,8 +216,28 @@
   display: inline-block;
 }
 
-.preview-basket-clicker:hover{
-  background-color: #222222;
+.preview-basket-clicker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.preview-basket-clicker:hover {
+  background: url('../img/icon-remove.png') no-repeat center;
+  width: @basketsPreviewThumbSize;
+  height: @basketsPreviewThumbSize;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.preview-basket-clicker:active {
+  background-color: #d2322d;
+  border: 3px dashed;
 }
 
 #clothes-baskets-preview .preview-thumb-img-circular {
@@ -227,6 +247,7 @@
   -moz-border-radius: 50%;
   border-radius: 50%;
   margin-left: 5px;
+  margin-right: 5px;
 }
 
 //RESULT ROW
