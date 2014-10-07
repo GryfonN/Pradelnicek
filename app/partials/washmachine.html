@@ -1,9 +1,10 @@
 <section class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-        <label class="navig-bar-left">Pradelnicek</label>
+        <label class="navig-bar-left">
+            <b>Pradelnicek</b>
+        </label>
 
         <div class="navig-bar-progress">
-            <!--PROGRESS-->
             <div class="progress">
                 <label>
                     Stav utriedeného oblečenia: {{getSortedClothesCount()}}/{{clothesData.length}}
@@ -17,7 +18,12 @@
             </div>
         </div>
 
-        <label class="navig-bar-right">Pradelnicek</label>
+        <div class="navig-bar-right">
+            <a href="https://github.com/GryfonN/Pradelnicek">
+                <img class="navig-bar-github-img"
+                     src="img/github_logo.png"></a>
+        </div>
+
     </div>
 </section>
 
